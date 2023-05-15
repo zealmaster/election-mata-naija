@@ -1,0 +1,247 @@
+.header {
+    position: sticky; 
+    top: 0px;
+    left: 0px;
+    right: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 100vw;
+    margin: auto;
+    width: 100%;
+    opacity: 0.80;
+}
+.appName {
+    background: linear-gradient(to right, rgb(163, 207, 174), rgb(201, 236, 178), rgb(3, 66, 11), rgb(159, 206, 159));
+    color: white; 
+    margin: auto;
+    padding: 5px; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    opacity: 0.94;
+}
+.partyInput {
+    background-color:rgb(244, 247, 250); 
+    height: 50px; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    position: sticky;
+    font-weight: 200;
+    width: 100%;
+}
+
+.button {
+    background-color:rgb(244, 247, 250);
+    width: 100px;
+    border-color: white;
+    border-radius: 10px;
+    font-weight: 45;
+    margin: 5px;
+}
+
+button:hover {
+    color:rgb(71, 238, 146);
+    background-color: white;
+    box-shadow: rgb(243, 94, 48);
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(244, 247, 250);
+}
+.textField {
+  width: 100px;
+  height: 30px;
+  margin: 10px 10px;
+  border-radius: 10px;
+}
+.textField:hover, .textField:active {
+  border-style: solid;
+  border-color: green;
+  border-width: 3px;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+table {
+margin: 10px;
+border-style: solid;
+padding:10px;
+background: linear-gradient(to right, rgb(102, 129, 107), rgb(106, 153, 155), rgb(159, 206, 159), rgb(112, 160, 119));
+color: white;
+}
+
+table:hover {
+  border-color: aliceblue;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.text {
+  cursor: pointer;
+}
+
+.content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown:hover .content,
+.dropdown:active .content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tableTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  align-items: center;
+  width: fit-content;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  border-color: aliceblue;
+  border-style:solid;
+  opacity: 0.80;
+  color: green;
+}
+.tableTitle:hover {
+  color:white;
+  border-style: solid;
+  background-color: rgb(141, 180, 158);
+  cursor: pointer;
+  background: linear-gradient(to right, rgb(76, 172, 94), rgb(159, 206, 159));
+}
+
+.footer {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  width: 100%;
+  height: 30px;
+  background-color:white;
+  color: rgb(106, 153, 155);
+  position: sticky;
+  bottom: 0;
+  border-style: solid;
+  border-top-width: 3px;
+  border-bottom-width: 0px;
+  border-color: gray;
+  opacity: 0.60;
+  padding: 2px;
+}
+.image {
+  width: 20px; 
+  height: 20px;
+}
+.icon {
+  margin: 20px;
+}
+/* Styles for desktop screens */
+.container {
+    width: 100vw;
+    margin: 0 auto;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  /* Styles for tablets */
+  @media (max-width: 768px) {
+    .container {
+      width: inherit;
+      padding: 10px;
+    }
+    .header {
+      position: sticky; 
+      top: 0px;
+      left: 0px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      width: 100vw;
+      margin: auto;
+      width: fit-content;
+    }
+    .partyInput {
+        background-color:rgb(244, 247, 250); 
+        width: fit-content ; 
+        height: 50px; 
+        display: flex; 
+        flex-direction: row; 
+        justify-content: center; 
+        align-items: center;
+        position: sticky;
+        padding: 5px;
+  }
+  .results {
+    display: inline;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 50px;
+    width: 100%; 
+  }
+  table {
+    margin: 10px;
+    border-style: solid;
+    border-color: green;
+    padding:10px;
+    background-color: rgb(120, 156, 135);
+    color: white;
+    width: 100%;
+    }
+  }
+
+  /* Styles for mobile devices */
+  @media (max-width: 480px) {
+    .container {
+      width: 100%;
+      padding: 10px;
+      margin: 5px;
+    }
+    .partyInput {
+        background-color:rgb(244, 247, 250); 
+        width: fit-content; 
+        height: 50px; 
+        display: flex; 
+        flex-direction: row; 
+        justify-content: center; 
+        align-items: center;
+        position:sticky;
+  }
+  .results {
+    display: inline-flex;
+    /* flex-direction: column; */
+    /* justify-content: space-between;
+    align-items: center;
+    margin-left: 50px;
+    width: 100%; */
+  }
+  table {
+    margin: 10px;
+    border-style: solid;
+    border-color: green;
+    padding:10px;
+    background-color: rgb(55, 119, 82);
+    color: white;
+    width: 100%;
+    }
+}
+
+
+
+
+
+

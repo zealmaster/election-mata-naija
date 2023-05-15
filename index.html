@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Election Mata Naija</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <script src="index.js"></script>
+</head>
+<body class="container">
+    <div class="header">
+    <h1 class="appName">Election Mata Naija</h1>
+    <div class="partyInput">
+        <label>Enter the number of political parties:</label>
+    <input class="textField" type="number" id="partyNumber">
+    <button class="button" onclick="generateTable()">Generate Table</button>
+    <div>
+        <button class="button" onclick="calculateResults()">Calculate Results</button>
+    </div>
+    <div>
+        <button class="button" onclick="calculatePercent()">Calculate Percentage Votes</button>
+    </div>
+    <div>
+        <button class="button" onclick="declareWinner()">Declare winner</button>
+    </div>
+    </div>
+    </div>
+        <div id="results" style="display: none;">
+            <h2 class="text tableTitle">Total votes for each party</h2>
+            <table id="resultsTable">
+                <!-- Results will be displayed here -->
+            </table>
+        </div>
+    <div class="results">
+        <div id="party" style="display: none;">
+            <h2 class="tableTitle">Enter result per state for each party</h2>
+            <table id="partyTable" style="display: none;">
+                <!-- Table content will be dynamically generated here -->
+            </table>
+        </div>
+
+    <div id="percentageVotes" style="display: none;">
+        <h2 class="tableTitle">Percentage votes per state</h2>
+        <table id="percentageTable">
+            <!-- percentage will be displayed here -->
+        </table>
+    </div>
+</div>
+</div>
+<div class="footer"> 
+    <div class="icon"><a href="https://www.linkedin.com/in/kingsley-ijuo-onah" target="linkedin.com/in/kingsley-ijuo-onah"><img src="linkedin.png" class="image"></a></div>
+    <div class="icon"><a href="https://github.com/zealmaster" target="https://github.com/zealmaster"><img src="github-142.svg" class="image"></a></div>
+    <div class="icon"><a href="mailto:onahkingsleyijuo@gmail.com" target="mailto:onahkingsleyijuo@gmail.com"><img src="gmail-icon-logo-svgrepo-com.svg" class="image"></a></div>
+</div>
+</body>
+</html>
