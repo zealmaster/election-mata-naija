@@ -45,7 +45,7 @@ function generateTable() {
     resultsTable.innerHTML = ""; // Clear previous results
     var percentageTable = document.getElementById("percentageTable");
     percentageTable.innerHTML = ""; // Clear previous results
-
+    
     // Display the party table
     if (partyNumber > 1) {
     var partyDiv = document.getElementById("party");
@@ -86,6 +86,9 @@ function calculateResults() {
 var partyNumber = document.getElementById("partyNumber").value;
 var resultsTable = document.getElementById("resultsTable");
 resultsTable.innerHTML = ""; // Clear previous results
+var showDashboard = document.getElementById("showDashboard");
+    showDashboard.style.display = "block";
+
 // Generate table columns
 var headerRow = resultsTable.insertRow();
     for (var i = 0; i < partyNumber; i++) {
