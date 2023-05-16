@@ -86,7 +86,6 @@ function calculateResults() {
 var partyNumber = document.getElementById("partyNumber").value;
 var resultsTable = document.getElementById("resultsTable");
 resultsTable.innerHTML = ""; // Clear previous results
-calculatePercent();
 // Generate table columns
 var headerRow = resultsTable.insertRow();
     for (var i = 0; i < partyNumber; i++) {
@@ -108,15 +107,17 @@ for (var j = 0; j < partyNumber; j++) {
         totalVotes += vote;
     }
     var scoreRow = resultsTable.insertRow();
-        for (var i = 0; i < partyNumber; i++) {
+        for (var i = 0; i < 1; i++) {
             if (i === 0) {
                 var partyCell = scoreRow.insertCell();
                 partyCell.innerHTML = " ";
                 }
-            var partyCell = scoreRow.insertCell();
-            partyCell.innerHTML = totalVotes;
-            totalVotes = 0; 
+                for (var j = 0; i<partyNumber;j++){
+                scoreRow.insertCell().innerHTML = totalVotes;}
     }
+    
+        // var partyCell = scoreRow.insertCell();
+        //     partyCell.innerHTML = totalVotes;
     console.log("Total votes for Party " + (j + 1) + ": " + totalVotes);
     totalVotes = 0; // Reset totalVotes for the next party
 }
@@ -170,6 +171,16 @@ for (var j = 0; j < partyNumber; j++) {
     if (partyNumber > 1) {
     var percentDiv = document.getElementById("percentageVotes");
     percentDiv.style.display = "block";
+} else {alert('The number of parties must be more than one!');}
+}
+function declareWinner() {
+var partyNumber = document.getElementById("partyNumber").value;
+var winnerTable = document.getElementById("winnerTable");
+winnerTable.innerHTML = ""; // Clear previous results
+    // Display the percents table
+    if (partyNumber > 1) {
+    var winnerDiv = document.getElementById("winner");
+    winnerDiv.style.display = "block";
 } else {alert('The number of parties must be more than one!');}
 }
 

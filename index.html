@@ -4,56 +4,80 @@
     <title>Election Mata Naija</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" >
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="index.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-    <script src="index.js"></script>
-</head>
-<body class="container">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet"></head>
+<body >
+    <div>
+        <div> <img src="icons8-menu-50.png" class="image">
+            <img src="icons8-close.svg" class="image">
+        </div>
+    </div>
     <div class="header">
-    <h1 class="appName">Election Mata Naija</h1>
-    <div class="partyInput">
-        <label>Enter the number of political parties:</label>
-    <input class="textField" type="number" id="partyNumber">
-    <button class="button" onclick="generateTable()">Generate Table</button>
-    <div>
-        <button class="button" onclick="calculateResults()">Calculate Results</button>
+        <h1 class="appName">Election Mata Naija</h1> 
+        <div class="partyInput">
+            <div>
+                <label>Enter the number of political parties:</label>
+                <input class="textField" type="number" id="partyNumber">
+            </div>
+        <div class="buttonContainer">
+            <div>
+                <button class="button" onclick="generateTable()">Generate Table</button>
+            </div>
+            <div>
+                <button class="button" onclick="calculateResults()">Calculate Results</button>
+            </div>
+            <div>
+                <button class="button" onclick="calculatePercent()">Calculate Percentage Votes</button>
+            </div>
+            <div>
+                <button class="button" onclick="declareWinner()">Declare winner</button>
+            </div>
+        </div>
+        </div>
     </div>
-    <div>
-        <button class="button" onclick="calculatePercent()">Calculate Percentage Votes</button>
-    </div>
-    <div>
-        <button class="button" onclick="declareWinner()">Declare winner</button>
-    </div>
-    </div>
-    </div>
-        <div id="results" style="display: none;">
+    <div style="padding: 5px 0;">
+    <div style="width: 100%; height: 130px;"></div>
+    <div class="dashboard">
+        <div id="results" style="display: none;" class="resultsTab">
             <h2 class="text tableTitle">Total votes for each party</h2>
             <table id="resultsTable">
-                <!-- Results will be displayed here -->
+                <!-- Results will be displayed here  -->
             </table>
         </div>
+        <div id="winner" style="display: none;" class="resultsTab">
+            <h2 class="text tableTitle">Winner</h2>
+            <table id="winnerTable">
+                <!--  Results will be displayed here  -->
+            </table>
+        </div>
+    </div>
+    <div style="width: 100%; height: 190px;"></div>
+
     <div class="results">
-        <div id="party" style="display: none;">
+        <div id="party" style="display: none;" class="party">
             <h2 class="tableTitle">Enter result per state for each party</h2>
-            <table id="partyTable" style="display: none;">
-                <!-- Table content will be dynamically generated here -->
+            <table id="partyTable" style="display: none;" class="table">
+                 <!-- Table content will be dynamically generated here  -->
             </table>
         </div>
 
     <div id="percentageVotes" style="display: none;">
-        <h2 class="tableTitle">Percentage votes per state</h2>
-        <table id="percentageTable">
-            <!-- percentage will be displayed here -->
+        <h2 class="tableTitle ">Percentage votes per state</h2>
+        <table id="percentageTable" class="table">
+            <!--  percentage will be displayed here  -->
         </table>
     </div>
 </div>
+</div>
+<div style="height: 100px; width: 100%;"></div>
 </div>
 <div class="footer"> 
     <div class="icon"><a href="https://www.linkedin.com/in/kingsley-ijuo-onah" target="linkedin.com/in/kingsley-ijuo-onah"><img src="linkedin.png" class="image"></a></div>
     <div class="icon"><a href="https://github.com/zealmaster" target="https://github.com/zealmaster"><img src="github-142.svg" class="image"></a></div>
     <div class="icon"><a href="mailto:onahkingsleyijuo@gmail.com" target="mailto:onahkingsleyijuo@gmail.com"><img src="gmail-icon-logo-svgrepo-com.svg" class="image"></a></div>
-</div>
+    <p>&copy; 2023 Kingsley. All rights reserved.</p> 
+</div> 
 </body>
 </html>
