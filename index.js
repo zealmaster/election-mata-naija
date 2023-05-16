@@ -106,15 +106,14 @@ for (var j = 0; j < partyNumber; j++) {
         vote = parseInt(voteInput.value) || 0;
         totalVotes += vote;
     }
-    var scoreRow = resultsTable.insertRow();
-        for (var i = 0; i < 1; i++) {
-            if (i === 0) {
-                var partyCell = scoreRow.insertCell();
-                partyCell.innerHTML = " ";
-                }
-                for (var j = 0; i<partyNumber;j++){
-                scoreRow.insertCell().innerHTML = totalVotes;}
-    }
+    // var scoreRow = resultsTable.insertRow();
+    //     for (var i = 0; i < 1; i++) {
+    //         if (i === 0) {
+    //             var partyCell = scoreRow.insertCell();
+    //             partyCell.innerHTML = " ";
+    //             }
+    //             scoreRow.insertCell().innerHTML = totalVotes;
+    // }
     
         // var partyCell = scoreRow.insertCell();
         //     partyCell.innerHTML = totalVotes;
