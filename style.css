@@ -102,8 +102,8 @@ button:hover {
 .results {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
+  justify-content: space-between;
+  width: fit-content;
 }
 .table {
 width: fit-content;
@@ -113,6 +113,13 @@ color: black ;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.table input {
+  width: 100px;
+  border-radius: 3px;
+  border-color: lightgreen;
+  border-width: 1px;
+ 
+}
 .party {
   display: flex;
   flex-direction: column;
@@ -207,7 +214,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .dashboard {
-  width: 100%;
+  width: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -217,6 +224,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 5;
   background-color: white;
   padding: 0 10px;
+  margin: 0 10px;
 
 
 }
@@ -227,7 +235,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .afterDashboard {
   width: 100%; 
-  height: 150px;
+  height: 200px;
   background-color: white;
 }
 
@@ -277,7 +285,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: 100%;
   }
   .dashboard {
-    width: 100%;
+    /* width: 100%; */
     padding: 0 10px;
   }
   .beforeDashboard {
@@ -341,7 +349,6 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     justify-content: space-between;
     align-items: center;
     margin-left: 10px;
-    width: 100%; 
     margin-top: auto;
   }
   .table {
@@ -351,12 +358,18 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   .tableTitle {
     font-size: small;
   }
+  .table input {
+    width: 100px;
+  }
+  .table input:hover {
+    border-color: green;
+  }
   .dashboard {
-    width: 100%;
-    padding: 0 10px;
+    padding: 0 10px; 
   }
   .resultsTab {
     padding: 10px;
+    width: 100%;
   }
   .beforeDashboard {
     width: 100%; 

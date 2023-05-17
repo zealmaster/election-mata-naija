@@ -99,9 +99,11 @@ var headerRow = resultsTable.insertRow();
         var headerCell = headerRow.insertCell();
         headerCell.innerHTML = "Party " + (i + 1);
     }
-    
+
+    //Calculate total votes for each party
 var totalVotes = 0;
 var vote = 0;
+var votes = [];
 for (var j = 0; j < partyNumber; j++) {
     for (var k = 0; k < stateNames.length; k++) {
         var state = stateNames[k];
@@ -109,20 +111,18 @@ for (var j = 0; j < partyNumber; j++) {
         vote = parseInt(voteInput.value) || 0;
         totalVotes += vote;
     }
-    // var scoreRow = resultsTable.insertRow();
-    //     for (var i = 0; i < 1; i++) {
-    //         if (i === 0) {
-    //             var partyCell = scoreRow.insertCell();
-    //             partyCell.innerHTML = " ";
-    //             }
-    //             scoreRow.insertCell().innerHTML = totalVotes;
-    // }
-    
-        // var partyCell = scoreRow.insertCell();
-        //     partyCell.innerHTML = totalVotes;
-    console.log("Total votes for Party " + (j + 1) + ": " + totalVotes);
+    votes.push(totalVotes)
     totalVotes = 0; // Reset totalVotes for the next party
 }
+
+// Display total votes for each party
+var headerRow = resultsTable.insertRow();
+var headerCell = headerRow.insertCell();
+        headerCell.innerHTML = " ";
+votes.map((vote) => { 
+    var headerCell = headerRow.insertCell();
+    headerCell.innerHTML = vote;
+})
 
     // Display the results table
     if (partyNumber > 1) {
@@ -164,7 +164,7 @@ for (var j = 0; j < partyNumber; j++) {
 for (var j = 0; j < partyNumber; j++) {
     var voteInput = document.getElementById("vote_" + state + "_party_" + (j + 1));
     var vote = parseInt(voteInput.value) || 0;
-    var percentage = totalVotes !== 0 ? (vote / totalVotes * 100).toFixed(2) : 0;
+    var percentage = totalVotes !== 0 ? (vote / totalVotes * 100).toFixed(0) : 0;
     var partyCell = row.insertCell();
     partyCell.innerHTML = percentage + '%';
 }
