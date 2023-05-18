@@ -26,10 +26,14 @@
                 <button class="button" onclick="generateTable()">Generate Table</button>
             </div>
             <div>
+                <a href="#results">
                 <button class="button" onclick="calculateResults()">Calculate Results</button>
+                </a>
             </div>
             <div>
+                <a href="#percent">
                 <button class="button" onclick="calculatePercent()">Calculate Percentage Votes</button>
+                </a>
             </div>
             <div>
                 <button class="button" onclick="declareWinner()">Declare winner</button>
@@ -65,7 +69,7 @@
         </div>
 
     <div id="percentageVotes" style="display: none;">
-        <h2 class="tableTitle ">Percentage votes per state</h2>
+        <h2 class="tableTitle " id="percent">Percentage votes per state</h2>
         <table id="percentageTable" class="table">
             <!--  percentage will be displayed here  -->
         </table>

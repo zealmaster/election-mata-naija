@@ -179,6 +179,9 @@ function declareWinner() {
 var partyNumber = document.getElementById("partyNumber").value;
 var winnerTable = document.getElementById("winnerTable");
 winnerTable.innerHTML = ""; // Clear previous results
+
+var maxVote = 0;
+calculateResults().votes.map((vote) =>{console.log(vote)})
     // Display the percents table
     if (partyNumber > 1) {
     var winnerDiv = document.getElementById("winner");

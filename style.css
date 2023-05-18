@@ -87,6 +87,10 @@ button:hover {
   width: 120px;
   padding: 20px 0;
 }
+.buttonContainer a {
+  outline: none;
+  text-decoration: none;
+}
 .textField {
   width: 100px; 
   height: 30px;
