@@ -38,6 +38,28 @@ var stateNames = [
         "Zamfara",
         "FCT"
     ];
+
+    function getPartyWithHighestVote(votes) {
+        let highestVote = 0;
+        let winningParty = '';
+      
+        // Iterate over each party and its votes
+        for (const party in votes) {
+          if (votes.hasOwnProperty(party)) {
+            const voteCount = votes[party];
+      
+            // Check if the current vote count is higher than the highest vote
+            if (voteCount > highestVote) {
+              highestVote = voteCount;
+              winningParty = party;
+            }
+          }
+        }
+      
+        return {winningParty, highestVote};
+      }
+      
+      
 function generateTable() {
     var partyNumber = document.getElementById("partyNumber").value;
     var table = document.getElementById("partyTable");
@@ -81,7 +103,7 @@ function generateTable() {
     }
      
 }
-
+var winner = {};
 function calculateResults() {
 var partyNumber = document.getElementById("partyNumber").value;
 var resultsTable = document.getElementById("resultsTable");
@@ -90,14 +112,16 @@ var showDashboard = document.getElementById("showDashboard");
     showDashboard.style.display = "block";
 
 // Generate table columns
-var headerRow = resultsTable.insertRow();
+var totalRow = resultsTable.insertRow();
     for (var i = 0; i < partyNumber; i++) {
         if(i===0) {
-        var headerCell = headerRow.insertCell();
-        headerCell.innerHTML = " ";
+        var totalCell = totalRow.insertCell();
+        totalCell.innerHTML = " ";
         }
-        var headerCell = headerRow.insertCell();
-        headerCell.innerHTML = "Party " + (i + 1);
+        var totalCell = totalRow.insertCell();
+        totalCell.innerHTML = "Party " + (i + 1);
+        let partyName = "Party " + (i + 1);
+        winner[partyName] = "";
     }
 
     //Calculate total votes for each party
@@ -111,19 +135,21 @@ for (var j = 0; j < partyNumber; j++) {
         vote = parseInt(voteInput.value) || 0;
         totalVotes += vote;
     }
+    winner["Party " + (j + 1)] = totalVotes;
     votes.push(totalVotes)
     totalVotes = 0; // Reset totalVotes for the next party
 }
 
 // Display total votes for each party
-var headerRow = resultsTable.insertRow();
-var headerCell = headerRow.insertCell();
-        headerCell.innerHTML = " ";
+var totalRow = resultsTable.insertRow();
+var totalCell = totalRow.insertCell();
+        totalCell.innerHTML = " ";
 votes.map((vote) => { 
-    var headerCell = headerRow.insertCell();
-    headerCell.innerHTML = vote;
+    var totalCell = totalRow.insertCell();
+    totalCell.innerHTML = vote;
 })
 
+console.log(winner);
     // Display the results table
     if (partyNumber > 1) {
     var percentDiv = document.getElementById("results");
@@ -131,57 +157,75 @@ votes.map((vote) => {
 } else {alert('The number of parties must be more than one!');}
 }
 
-// Calculate  percentage vote per state
-function calculatePercent() {
-var partyNumber = document.getElementById("partyNumber").value;
-var percentageTable = document.getElementById("percentageTable");
-percentageTable.innerHTML = ""; // Clear previous results
+let winnerPercent = {};
+let percentCount = 0;
 
-// Generate table columns
-var headerRow = percentageTable.insertRow();
+function calculatePercent() {
+    var partyNumber = parseInt(document.getElementById("partyNumber").value);
+    var percentageTable = document.getElementById("percentageTable");
+    percentageTable.innerHTML = ""; // Clear previous results
+
+    // Generate table columns
+    var headerRow = percentageTable.insertRow();
     for (var i = 0; i < partyNumber; i++) {
-        if(i===0) {
-        var headerCell = headerRow.insertCell();
-        headerCell.innerHTML = "State";
+        if (i === 0) {
+            var headerCell = headerRow.insertCell();
+            headerCell.innerHTML = "State";
         }
         var headerCell = headerRow.insertCell();
         headerCell.innerHTML = "Party " + (i + 1);
-}
-// state column
-for (var i = 0; i < stateNames.length; i++) {
-var state = stateNames[i];
-var row = percentageTable.insertRow();
-var stateCell = row.insertCell();
-stateCell.innerHTML = state;
+        winnerPercent["Party " + (i + 1)] = ""; // Initialize with 0
+    }
 
-// percentage per state
-var totalVotes = 0;
-for (var j = 0; j < partyNumber; j++) {
-    var voteInput = document.getElementById("vote_" + state + "_party_" + (j + 1));
-    var vote = parseInt(voteInput.value) || 0;
-    totalVotes += vote;
-}
-for (var j = 0; j < partyNumber; j++) {
-    var voteInput = document.getElementById("vote_" + state + "_party_" + (j + 1));
-    var vote = parseInt(voteInput.value) || 0;
-    var percentage = totalVotes !== 0 ? (vote / totalVotes * 100).toFixed(0) : 0;
-    var partyCell = row.insertCell();
-    partyCell.innerHTML = percentage + '%';
-}
-}
+    // state column
+    for (var i = 0; i < stateNames.length; i++) {
+        var state = stateNames[i];
+        var row = percentageTable.insertRow();
+        var stateCell = row.insertCell();
+        stateCell.innerHTML = state;
+
+        // percentage per state
+        var totalVotes = 0;
+        for (var j = 0; j < partyNumber; j++) {
+            var voteInput = document.getElementById("vote_" + state + "_party_" + (j + 1));
+            var vote = parseInt(voteInput.value) || 0;
+            totalVotes += vote;
+        }
+
+        for (var j = 0; j < partyNumber; j++) {
+            var voteInput = document.getElementById("vote_" + state + "_party_" + (j + 1));
+            var vote = parseInt(voteInput.value) || 0;
+            var percentage = totalVotes !== 0 ? ((vote / totalVotes) * 100).toFixed(0) : 0;
+            var partyCell = row.insertCell();
+            partyCell.innerHTML = percentage + "%";
+            console.log(percentage)
+            winnerPercent["Party " + (j + 1)] = percentage;
+        }
+        // percentCount = 0;
+    }
+    console.log(winnerPercent);
+
     // Display the percents table
     if (partyNumber > 1) {
-    var percentDiv = document.getElementById("percentageVotes");
-    percentDiv.style.display = "block";
-} else {alert('The number of parties must be more than one!');}
+        var percentDiv = document.getElementById("percentageVotes");
+        percentDiv.style.display = "block";
+    } else {
+        alert("The number of parties must be more than one!");
+    }
 }
+
 function declareWinner() {
 var partyNumber = document.getElementById("partyNumber").value;
 var winnerTable = document.getElementById("winnerTable");
 winnerTable.innerHTML = ""; // Clear previous results
 
 var maxVote = 0;
-calculateResults().votes.map((vote) =>{console.log(vote)})
+console.log(maxVote)
+      // Example usage
+      const winningParty = getPartyWithHighestVote(winner);
+
+      const winnerRow = winnerTable.insertRow()
+      winnerRow.innerHTML = `The election is won by ${winningParty.winningParty} with ${winningParty.highestVote} votes`;
     // Display the percents table
     if (partyNumber > 1) {
     var winnerDiv = document.getElementById("winner");
